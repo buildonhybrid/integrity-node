@@ -1,0 +1,20 @@
+services:
+  integrity-node:
+    image: buildonhybrid/integrity-node:latest
+    container_name: integrity-node
+    env_file:
+      - .env
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+      - &autoupdate com.centurylinklabs.watchtower.scope=integritynode
+
+  autoupdate:
+    image: containrrr/watchtower:1.7.1
+    container_name: autoupdate
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WATCHTOWER_POLL_INTERVAL: 10800
+      WATCHTOWER_LABEL_ENABLE: true
+    labels:
+      - *autoupdate
