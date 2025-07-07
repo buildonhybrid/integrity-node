@@ -6,11 +6,11 @@ services:
       - .env
     labels:
       - com.centurylinklabs.watchtower.enable=true
-      - &autoupdate com.centurylinklabs.watchtower.scope=integritynode
+      - &autoupdate com.centurylinklabs.watchtower.scope=integrity-node
 
   autoupdate:
     image: containrrr/watchtower:1.7.1
-    container_name: autoupdate
+    container_name: integrity-node-autoupdate
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
