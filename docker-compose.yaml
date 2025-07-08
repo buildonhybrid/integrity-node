@@ -1,16 +1,16 @@
 services:
   integrity-node:
-    image: buildonhybrid/integrity-node:latest
-    container_name: integrity-node
+    image: buildonhybrid/hybrid-node:latest
+    container_name: hybrid-node
     env_file:
       - .env
     labels:
       - com.centurylinklabs.watchtower.enable=true
-      - &autoupdate com.centurylinklabs.watchtower.scope=integrity-node
+      - &autoupdate com.centurylinklabs.watchtower.scope=hybrid-node
 
   autoupdate:
     image: containrrr/watchtower:1.7.1
-    container_name: integrity-node-autoupdate
+    container_name: hybrid-node-autoupdate
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
