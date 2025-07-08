@@ -1,5 +1,5 @@
 services:
-  integrity-node:
+  hybrid-node:
     image: buildonhybrid/hybrid-node:latest
     container_name: hybrid-node
     env_file:
