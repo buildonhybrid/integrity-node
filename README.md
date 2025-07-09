@@ -5,7 +5,7 @@
 Make sure you have the following installed and set up:
 
 - Docker
-- docker-compose
+- Docker Compose
 - A `.env` file in the project root directory with the required environment variables
 
 ---
@@ -36,7 +36,7 @@ The `docker-compose.yml` includes two services:
 #### hybrid-node
 
 - Runs the core job processor
-- Uses the `buildonhybrid/hybrid-node` image
+- Uses the `nodeops/hybrid-node` image
 - Loads environment variables from `.env`
 - Has labels configured for automatic updates
 
@@ -53,13 +53,13 @@ The `docker-compose.yml` includes two services:
 To start everything:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 To view logs:
 
 ```bash
-docker-compose logs -f hybrid-node
+docker logs -f hybrid-node
 ```
 
 ---
@@ -77,11 +77,11 @@ Once the node is running, go to the [delegation dashboard](https://nodes.buildon
 To stop everything:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 To rebuild and restart (for updates or config changes):
 
 ```bash
-docker-compose down && docker-compose up -d --pull always
+docker compose down && docker compose up -d --pull always
 ```
