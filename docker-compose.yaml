@@ -1,6 +1,6 @@
 services:
   hybrid-node:
-    image: buildonhybrid/hybrid-node:latest
+    image: nodeops/hybrid-node:latest
     container_name: hybrid-node
     env_file:
       - .env
@@ -14,7 +14,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      WATCHTOWER_POLL_INTERVAL: 10800
-      WATCHTOWER_LABEL_ENABLE: true
+      WATCHTOWER_POLL_INTERVAL: "10800"
+      WATCHTOWER_LABEL_ENABLE: "true"
     labels:
       - *autoupdate
